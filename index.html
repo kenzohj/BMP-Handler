@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- === <!DOCTYPE html> déclare le fichier HTML en version 5. === -->
+<!-- === Nous définissons la langue de la page en français. === -->
+<html lang="fr">
+
+<head>
+    <!-- === Spécification du type d'encodage du site web, ici nous utiliserons utf-8 pour sa légerté ainsi que son universalité. === -->
+    <meta charset="UTF-8">
+    <!-- === Ajout de la compatibilité pour les derniers navigateurs de Microsoft. === -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- === Ajout de la compatibilité pour les navigateurs mobiles. === -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- === Tittre de l'onglet de la page. === -->
+    <title>Convertisseur d'images</title>
+    <!-- === Icône de la page s'affichant dans l'onglet de celle-ci. === -->
+    <link rel="shortcut icon" type="image/png" href="img/logo.png">
+    <!-- === Importation des fichiers de stylisation de la page. === -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/popups.css">
+
+    <!-- === Open Graph : cela permet d'afficher certaines informations du site web lorsque le lien de celui-ci est utilisé. === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sae-convertisseur.fr">
+    <meta property="og:title" content="Accueil">
+    <meta property="og:site_name" content="Convertisseur d'Images">
+    <meta property="og:description" content="Notre convertisseur d'image permet d'apporter des modifications aux images d'extension BMP, comme le changement de couleurs, l'extraction de contours et d'autres.">
+    <meta property="og:image" content="img/logo.png">
+</head>
+
+<body>
+
+    <!-- === Boite principale permettant d'aligner le titre et le contenu principal de la page. === -->
+    <main>
+
+            <!-- === Titre de la page figurant en haut de celle-ci. === -->
+            <h1>Convertisseur d'images</h1>
+    
+            <!-- === Boite secondaire contenant le contenu principal du site web. === -->
+            <div class="sub-box">
+    
+                <!-- === Formulaire permettant de communiquer avec les fichiers python. === -->
+                <form action="index.py" method="post">
+
+                    <!-- === Boite permettant de récupérer le fichier à traiter envoyé par l'utilisateur. === -->
+                    <div class="image-input">
+                        <p class="noselect">Choisir une image à convertir (.BMP)</p>
+                        <input type="file" name="fichier1" accept="image/bmp"> 
+                    </div>
+            
+                    <!-- === Boite permettant d'aligner le titre et la liste des traitements disponibles. === -->
+                    <div class="treatments">
+                        <!-- === Sous-titre expliquant à l'utilisateur de choisir les traitements désirés listés ci-dessous. === -->
+                        <h2>Choisir un ou plusieurs traitement(s) :</h2>
+
+                        <!-- === Boite contenant la liste des traitements afin de pouvoir les aligner. === -->
+                        <div class="treatments-list">
+
+                            <!-- === Boite permettant à l'utilisateur de choisir ou non le traitement qui transforme les couleurs de l'image en plusieurs nuances de gris. === -->
+                            <div class="treatment">
+                                <a href="#gray-popup"><img src="img/lightbulb.svg" alt="un triangle aux trois côtés égaux" height="30" width="100"></a>
+                                <label for="treatment-gray" class="noselect">Niveau de gris</label>
+                                <input type="checkbox" name="gris" id="treatment-gray" value="ok">
+                            </div>
+
+                            <!-- === Boite permettant à l'utilisateur de choisir ou non le traitement qui inverse les couleur de l'image. === -->
+                            <div class="treatment">
+                                <a href="#inversion-popup"><img src="img/lightbulb.svg" alt="un triangle aux trois côtés égaux" height="30" width="100"></a>
+                                <label for="treatment-inversion" class="noselect">Inversion des couleurs</label>
+                                <input type="checkbox" name="inversion" id="treatment-inversion" value="ok">
+                            </div>
+
+                            <!-- === Boite permettant à l'utilisateur de choisir ou non le traitement qui transforme les couleurs de l'image en noir et blanc. === -->
+                            <div class="treatment">
+                                <a href="#monochrome-popup"><img src="img/lightbulb.svg" alt="un triangle aux trois côtés égaux" height="30" width="100"></a>
+                                <label for="treatment-monochrome" class="noselect">Image monochrome</label>
+                                <input type="checkbox" name="monochrome" id="treatment-monochrome" value="ok">
+                            </div>
+
+                            <!-- === Boite permettant à l'utilisateur de choisir ou non le traitement qui extrait les contours de l'image. === -->
+                            <div class="treatment">
+                                <a href="#outline-popup"><img src="img/lightbulb.svg" alt="un triangle aux trois côtés égaux" height="30" width="100"></a>
+                                <label for="treatment-outline" class="noselect">Extraction des contours</label>
+                                <input type="checkbox" name="contour" id="treatment-outline" value="ok">
+                            </div>
+                    
+                        </div>
+
+                        <!-- === Boite permettant à l'utilisateur de choisir ou non la fusion de 2 images. === -->
+                        <div class="fusion-treatment treatment">
+                            <a href="#fusion-popup"><img src="img/lightbulb.svg" alt="un triangle aux trois côtés égaux" height="30" width="100"></a>
+                            <label for="image-input-2" class="noselect">Fusion de 2 images</label>
+                            <input type="checkbox" name="fusion" id="image-input-2" value="ok">
+                            <!-- === Boite permettant de récupérer le second fichier à traiter envoyé par l'utilisateur pour la fusion d'images. === -->
+                            <div class="image-input-button-2">
+                                <label class="noselect">Choisir une image à superposer (.BMP)</label>
+                                <input type="file" name="fichier2" accept="image/bmp">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- === Bouton permettant à l'utilisateur d'appliquer les différents traitements choisis à son(ses) image(s). === -->
+                    <label class="process" for="submit">Appliquer</label>
+                    <input class="hidden" type="submit" id="submit" value="Traiter">
+
+                    <div class="log">
+                        <!-- LOG -->
+                    </div>
+
+                </form>
+    
+            </div>
+
+    </main>
+
+    <!-- === Boite contenant la liste des différentes aides sous la forme de popups. === -->
+    <div class="popups">
+
+        <!-- === Popup d'aide pour le traitement "Niveau de gris". === -->
+        <div id="gray-popup" class="overlay">
+
+            <!-- === Boite contenant le contenu de la popup. === -->
+            <div class="popup">
+                <!-- === Titre de la popup. === -->
+                <h2>Niveau de gris</h2>
+                <!-- === Croix permettant de fermer la popup. === -->
+                <a class="close" href="#">&times;</a>
+                <!-- === Texte d'aide. === -->
+                <div class="content">Modifie les couleurs de l'image vers des nuances de gris.</div>
+            </div>
+    
+        </div>
+
+        <!-- === Popup d'aide pour le traitement "Inversion des couleurs". === -->
+        <div id="inversion-popup" class="overlay">
+
+            <!-- === Boite contenant le contenu de la popup. === -->
+            <div class="popup">
+                <!-- === Titre de la popup. === -->
+                <h2>Inversion des couleurs</h2>
+                <!-- === Croix permettant de fermer la popup. === -->
+                <a class="close" href="#">&times;</a>
+                <!-- === Texte d'aide. === -->
+                <div class="content">Inverse les couleurs de l'image.</div>
+            </div>
+    
+        </div>
+
+        <!-- === Popup d'aide pour le traitement "Image monochrome". === -->
+        <div id="monochrome-popup" class="overlay">
+
+            <!-- === Boite contenant le contenu de la popup. === -->
+            <div class="popup">
+                <!-- === Titre de la popup. === -->
+                <h2>Image monochrome</h2>
+                <!-- === Croix permettant de fermer la popup. === -->
+                <a class="close" href="#">&times;</a>
+                <!-- === Texte d'aide. === -->
+                <div class="content">Modifie les couleurs de l'image vers du noir et du blanc seulement.</div>
+            </div>
+    
+        </div>
+
+        <!-- === Popup d'aide pour le traitement "Extraction des couleurs". === -->
+        <div id="outline-popup" class="overlay">
+
+            <!-- === Boite contenant le contenu de la popup. === -->
+            <div class="popup">
+                <!-- === Titre de la popup. === -->
+                <h2>Extraction des contours</h2>
+                <!-- === Croix permettant de fermer la popup. === -->
+                <a class="close" href="#">&times;</a>
+                <!-- === Texte d'aide. === -->
+                <div class="content">Extrait les contours de l'image.</div>
+            </div>
+    
+        </div>
+
+        <!-- === Popup d'aide pour le traitement "Fusion de 2 images". === -->
+        <div id="fusion-popup" class="overlay">
+
+            <!-- === Boite contenant le contenu de la popup. === -->
+            <div class="popup">
+                <!-- === Titre de la popup. === -->
+                <h2>Fusion de 2 images</h2>
+                <!-- === Croix permettant de fermer la popup. === -->
+                <a class="close" href="#">&times;</a>
+                <!-- === Texte d'aide. === -->
+                <div class="content">Superpose les images.</div>
+            </div>
+    
+        </div>
+
+    </div>
+
+</body>
+
+</html>

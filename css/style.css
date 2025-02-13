@@ -1,0 +1,216 @@
+/* Importation des polices utilisées. */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kanit:wght@400;700&display=swap');
+
+/* Classe permettant de rendre invisible un élément. */
+.hidden {
+    display: none !important;
+}
+
+/* Classe permettant de rendre du texte non selectionnable par l'utilisateur. */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Anciennes versions de Firefox */
+    -ms-user-select: none; /* Internet Explorer & Edge */
+    user-select: none; /* Supporté par Chrome, Edge, Opera & Firefox */
+}
+
+/* Définitions des variables utilisées qui réfèrent chacune à une couleur propre. */
+:root {
+    --main-color: #00a405; /* Couleur principale */
+    --background-color: #f3fffe; /* Couleur de fond */
+    --blue-background-color: #ccfffb; /* Couleur de fond bleue */
+    --green-background-color: #f5fff4; /* Couleur de fond verte */
+    --white-color: #fff; /* Couleur blanche */
+    --black-color: #000; /* Couleur noire */
+}
+
+/* Stylisation de la barre de défilement. */
+html {
+    scroll-behavior: smooth; /* Défilement doux (non instantané) */
+    scrollbar-width: thin; /* Largeur de la barre de défilement en fin */
+    scrollbar-color: var(--main-color) var(--background-color); /* Couleurs de la barre de défilement */
+}
+
+/* Stylisation du corps de la page */
+body {
+    display: flex; /* Mode de positionnement en flex */
+    justify-content: center; /* Centrage du contenu du corps de la page au milieu de celle-ci */
+
+    line-height: 1.5; /* Définition de l'espacement de ligne */
+    font-size: 1rem; /* Définition de la taille du texte */
+    font-weight: 400; /* Définition du niveau de gras du texte */
+    font-family: 'Kanit', sans-serif; /* Définition de la police du texte */
+    background-color: var(--green-background-color); /* Définition de la couleur de fond du corps de la page */
+}
+
+/* Changement des Stylisations par défaut de certains attributs */
+* {
+    margin: 0; /* Définition de la marge externe à 0 */
+    padding: 0; /* Définition de la marge interne à 0 */
+    outline: none; /* Suppression des bordures */
+
+    list-style: none; /* Suppression de la stylisation par défaut des listes */
+    text-decoration: none; /* Suppression de la stylisation par défaut des liens */
+
+    box-sizing: border-box; /* Mode de positionnement des éléments dans une boite de manière à ce qu'il ne débordent pas */
+}
+
+/* Stylisation de la boite "principale" contenant le contenu principal de la page */
+main {
+    flex: 0 0 60%; /* Définition de la largeur à 60% */
+    max-width: 60%; /* Définition de la largeur maximale autorisée pour la boite principale à 60% */
+
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite principale */
+    justify-content: center; /* Centrage du contenu de la boite principale au milieu de celle-ci */
+
+    padding: 3rem; /* Ajout d'une marge interne de 3rem (48px) */
+    gap: 2.5rem; /* Ajout d'un espacement de 2.5rem (40px) entre chaque éléments présents dans la boite principale */
+}
+
+/* Stylisation du titre principal de la page */
+main h1 {
+    text-align: center; /* Alignement du titre au milieu de la boite principale */
+
+    color: var(--main-color); /* Application de la couleur principale sur le titre */
+    font-family: 'Indie Flower', cursive; /* Application de la police d'écriture spéciale sur le titre */
+    font-size: 3rem; /* Application de la taille du texte du titre à 3rem (48px) */
+    font-weight: 700; /* Application d'un niveau de gras élevé pour le titre */
+    text-decoration: underline; /* Application d'un soulignage au titre */
+}
+
+/* Stylisation de la boite formulaire */
+main form {
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+    align-items: center; /* Alignement central entre les éléments présents dans la boite */
+    gap: 1.25rem; /* Application d'un espacement entre chaque éléments présents dans la boite de 1.25rem (20px) */
+
+    /* 
+    Application d'une ombre avec un décalage en X et Y ainsi qu'une propagation nuls. 
+    Application d'un rayon de flou de 0.25rem (4px) et de la couleur principale sur l'ombre.
+    */
+    box-shadow: 0 0 0.25rem 0 var(--main-color); 
+    background-color: var(--background-color); /* Application d'une couleur de fond */
+    border: 0.125rem solid var(--main-color); /* Application d'une bordure solide epaisse de 0.125rem (2px) de la couleur principale */
+    border-radius: 0.5rem; /* Application d'un rayon de bordure de 0.5rem (8px) permettant d'arrondir les bords */
+    padding: 3rem; /* Application d'une marge intérieure de 3rem (48px) */
+}
+
+/* Stylisation de la boite "image-input" permettant à l'utilisateur d'envoyer le 1er fichier */
+main form .image-input {
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+    justify-content: center; /* Centrage du contenu de la boite au milieu de celle-ci */
+    text-align: center; /* Alignement central des textes présents dans la boite */
+    align-items: center; /* Alignement central entre les éléments présents dans la boite */
+
+    background-color: var(--blue-background-color); /* Application d'une couleur de fond */
+    border-radius: 0.25rem; /* Application d'un rayon de bordure de 0.25rem (4px) permettant d'arrondir les bords */
+    padding: 0.75rem; /* Application d'une marge intérieure de 0.75rem (12px) */
+}
+
+/* Stylisation du texte présent dans la boite "image-input" */
+main form .image-input p {
+    font-weight: 700; /* Application d'un niveau de gras élevé */
+}
+
+/* Stylisation de la boite "treatments" regroupant les différents traitements disponibles */
+main form .treatments {
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+    justify-content: center; /* Centrage du contenu de la boite au milieu de celle-ci */
+    align-items: center; /* Alignement central entre les éléments présents dans la boite */
+    gap: 2rem; /* Application d'un espacement entre chaque éléments présents dans la boite de 2rem (32px) */
+}
+
+/* Stylisation du sous-titre présent dans la boite "treatments" */
+main form .treatments h2 {
+    font-family: 'Indie Flower', cursive; /* Application de la police d'écriture spéciale sur le sous-titre */
+    font-size: 1.25rem; /* Application de la taille du texte du sous-titre à 1.25rem (20px) */
+    text-decoration: underline; /* Application d'un soulignage au sous-titre */
+}
+
+/* Stylisation de la boite "treatments-list" regroupant la liste des traitements disponibles sauf la fusion d'images */
+main form .treatments .treatments-list {
+    display: grid; /* Mode de positionnement en grille */
+    grid-template-columns: repeat(4, 1fr); /* Définition du nombre d'éléments par ligne à 4 */
+    grid-template-rows: repeat(1, 1fr); /* Définition du nombre de lignes à 1 */
+    gap: 1rem; /* Application d'un espacement entre chaque éléments présents dans la grille de 1rem (16px) */
+}
+
+/* Stylisation de la boite de chaque traitement */
+main form .treatments .treatment {
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+    justify-content: center; /* Centrage du contenu de la boite au milieu de celle-ci */
+    text-align: center; /* Alignement central des textes présents dans la boite */
+    align-items: center; /* Alignement central entre les éléments présents dans la boite */
+
+    gap: 1rem; /* Application d'un espacement entre chaque éléments présents dans la boite de 1rem (16px) */
+    padding: 0.75rem; /* Application d'une marge intérieure de 0.75rem (12px) */
+    border-radius: 0.125rem; /* Application d'un rayon de bordure de 0.125rem (2px) permettant d'arrondir les bords */
+    /* 
+    Application d'une ombre avec un décalage en X et Y ainsi qu'une propagation nuls. 
+    Application d'un rayon de flou de 0.125rem (2px) et de la couleur noire.
+    */
+    box-shadow: 0 0 0.125rem 0 var(--black-color);
+
+    background-color: var(--white-color); /* Application d'une couleur de fond */
+    cursor: pointer; /* Définition du curseur de l'utilisateur en mode "pointeur" lors du survol de la boite */
+}
+
+main form .treatments .treatment a {
+    transition: all .3s ease; /* Transition d'animation de manière à ce que celle-ci se fasse pas à pas en 0.3s */
+}
+
+main form .treatments .treatment a:hover {
+    transform: scale(1.2);
+}
+
+/* Stylisation du label présent dans la boite de chaque traitement */
+main form .treatments .treatments-list .treatment label {
+    cursor: pointer; /* Définition du curseur de l'utilisateur en mode "pointeur" lors du survol du label */
+}
+
+/* Stylisation de la boite contenant le traitement de fusion de 2 images */
+main form .treatments .fusion-treatment {
+    display: flex; /* Mode de positionnement en flex */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+}
+
+/* Stylisation du label présent dans la boite du traitement de la fusion de 2 images */
+main form .treatments .fusion-treatment div label {
+    font-size: 1rem; /* Définition de la taille du texte */
+}
+
+/* Stylisation de la boite "image-input-button-2" permettant à l'utilisateur d'envoyer le 2nd fichier */
+.image-input-button-2 {
+    display: none; /* Cachement de la boite */
+    padding: 0.75rem; /* Application d'une marge intérieure de 0.75rem (12px) */
+    border-radius: 0.125rem; /* Application d'un rayon de bordure de 0.125rem (2px) permettant d'arrondir les bords */
+    background-color: var(--blue-background-color); /* Application d'une couleur de fond */
+    font-size: 0.75rem; /* Définition de la taille du texte */
+}
+
+/* Lorsque que le button "image-input-2" est coché, alors on modifie la stylisation de la boite "image-input-button-2" afin de la rendre visible */
+#image-input-2:checked + .image-input-button-2 {
+    display: flex; /* Mode de positionnement en flex afin d'afficher boite cachée */
+    flex-direction: column; /* Alignement vertical des éléments présents dans la boite */
+}
+
+/* Stylisation de la boite contenant le bouton d'application des traitements */
+main form .process {
+    color: var(--main-color); /* Application d'une couleur de texte */
+    font-size: 2rem; /* Définition de la taille du texte */
+    font-family: 'Indie Flower', cursive;  /* Application de la police d'écriture spéciale sur le texte */
+    cursor: pointer; /* Définition du curseur de l'utilisateur en mode "pointeur" lors du survol de la boite */
+    transition: all .3s ease; /* Transition d'animation de manière à ce que celle-ci se fasse pas à pas en 0.3s */
+}
+
+/* Stylisation de la boite contenant le bouton d'application des traitements lorsqu'il est survolé */
+main form .process:hover {
+    transform: scale(1.1); /* Aggrandissement du bouton de 10% */
+}

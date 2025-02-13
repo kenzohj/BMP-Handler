@@ -1,0 +1,81 @@
+/* Lorsque la largeur de l'écran de l'utilisateur est de 1199 pixels ou moins... */
+@media (max-width: 1199px) {
+
+    /* Changement de stylisation sur la boite principale */
+    main {
+        flex: 0 0 70%; /* Définition de la largeur à 70% */
+        max-width: 70%; /* Définition de la largeur maximale autorisée pour la boite principale à 70% */
+    }
+
+}
+
+/* Lorsque la largeur de l'écran de l'utilisateur est de 1069 pixels ou moins... */
+@media (max-width: 1069px) {
+
+    /* Changement de stylisation sur la boite principale */
+    main {
+        flex: 0 0 80%; /* Définition de la largeur à 80% */
+        max-width: 80%; /* Définition de la largeur maximale autorisée pour la boite principale à 80% */
+    }
+
+}
+
+/* Lorsque la largeur de l'écran de l'utilisateur est de 899 pixels ou moins... */
+@media (max-width: 899px) {
+
+    /* Changement de stylisation sur la boite principale */
+    main {
+        flex: 0 0 90%; /* Définition de la largeur à 90% */
+        max-width: 90%; /* Définition de la largeur maximale autorisée pour la boite principale à 90% */
+    }
+
+    /* Changement de stylisation de la boite "treatments-list" regroupant la liste des traitements disponibles sauf la fusion d'images */
+    main form .treatments .treatments-list {
+        grid-template-columns: repeat(2, 1fr); /* Définition du nombre d'éléments par ligne à 2 */
+        grid-template-rows: repeat(2, 1fr); /* Définition du nombre de lignes à 2 */
+    } 
+
+}
+
+/* Lorsque la largeur de l'écran de l'utilisateur est de 767 pixels ou moins... */
+@media (max-width: 767px) {
+
+    /* Changement de stylisation du titre principal de la page */
+    main h1 {
+        font-size: 2rem; /* Application de la taille du texte du titre à 2rem (32px) */
+    }
+
+    /* Changement de stylisation des popups */
+    .popups .popup {
+        width: 70%; /* Agrandissement de la largeur des popups */
+    }
+
+}
+
+/* Lorsque la largeur de l'écran de l'utilisateur est de 599 pixels ou moins... */
+@media (max-width: 599px) {
+
+    /* Changement de stylisation sur la boite principale */
+    main {
+        flex: 0 0 100%; /* Définition de la largeur à 100% */
+        max-width: 100%; /* Définition de la largeur maximale autorisée pour la boite principale à 100% */
+    }
+
+    /* 
+    Changement de stylisation du sous-titre présent dans la boite "treatments" */
+    main form .treatments h2 {
+        font-size: 1rem; /* Application de la taille du texte du sous-titre à 1rem (16px) */
+    }
+
+}
+
+/* Lorsque la largeur de l'écran de l'utilisateur est de 472 pixels ou moins... */
+@media (max-width: 472px) {
+
+    /* Changement de stylisation de la boite "treatments-list" regroupant la liste des traitements disponibles sauf la fusion d'images */
+    main form .treatments .treatments-list {
+        grid-template-columns: repeat(1, 1fr); /* Définition du nombre d'éléments par ligne à 1 */
+        grid-template-rows: repeat(4, 1fr); /* Définition du nombre de lignes à 4 */
+    } 
+
+}
